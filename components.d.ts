@@ -19,6 +19,7 @@ declare module 'vue' {
     FrontTitle: typeof import('./src/components/front/FrontTitle.vue')['default']
     Loading: typeof import('element-plus/es')['ElLoadingDirective']
     MsgDialog: typeof import('./src/components/front/header/MsgDialog.vue')['default']
+    NewsDialog: typeof import('./src/components/front/header/NewsDialog.vue')['default']
   }
 }
 

@@ -21,10 +21,7 @@
 
 <script lang="ts" setup>
   import { ref, watch } from 'vue';
-  import useSiteSettingsStore from '@/store/hooks/useSiteSettingsStore';
   import { IBoxesData } from '@/api/siteApi';
-
-  const siteSettings = useSiteSettingsStore();
 
   const props = defineProps<{
     boxes: IBoxesData[];
@@ -58,7 +55,7 @@
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-5;
 
     .box {
-      @apply bg-gray-600 bg-opacity-50 rounded-lg p-3 m-1 border border-gray-300;
+      @apply bg-gray-800 bg-opacity-50 rounded-lg p-3 m-1 border border-gray-300;
       color: var(--box-background-color);
 
       &:hover {

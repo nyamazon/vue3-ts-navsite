@@ -25,7 +25,9 @@
     </div>
     <div class="right">
       <ul class="flex space-x-2">
-        <li>新闻</li>
+        <li>
+          <NewsDialog />
+        </li>
         <li>
           <MsgDialog />
         </li>
@@ -42,6 +44,7 @@
   import { computed, ref } from 'vue';
   import cityOptions from '@/assets/data/city.json';
   import MsgDialog from './header/MsgDialog.vue';
+  import NewsDialog from './header/NewsDialog.vue';
 
   const weatherStore = useWeatherStore();
   const info = computed(() => {

@@ -120,9 +120,22 @@ export interface ICalendar {
   weatherSourceUrl: string;
 }
 
+export interface INews {
+  code: number;
+  msg: string;
+  data: string[];
+}
+
 export const reqWeather = (city: string) => {
   return useHttp<BasicResp<string>>({
     url: `common/weather?city=${encodeURIComponent(city)}`,
+    method: 'get',
+  });
+};
+
+export const reqNews = () => {
+  return useHttp<INews>({
+    url: `common/news`,
     method: 'get',
   });
 };
