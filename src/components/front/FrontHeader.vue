@@ -1,5 +1,5 @@
 <template>
-  <div class="headers flex justify-between">
+  <div class="headers flex justify-between px-2">
     <div class="left">
       <el-popover
         :visible="showPoper"
@@ -19,12 +19,12 @@
           />
         </template>
         <template #reference>
-          <el-button type="text" @click="showPoper = true">{{ info }}</el-button>
+          <el-button type="text" @click="showPoper = !showPoper">{{ info }}</el-button>
         </template>
       </el-popover>
     </div>
     <div class="right">
-      <ul class="flex space-x-2">
+      <ul class="flex space-x-4">
         <li>
           <NewsDialog />
         </li>
@@ -33,7 +33,9 @@
         </li>
         <li>最新</li>
         <li>哈哈</li>
-        <li>鼠标</li>
+        <li>
+          <MenuDropDown />
+        </li>
       </ul>
     </div>
   </div>
@@ -45,6 +47,7 @@
   import cityOptions from '@/assets/data/city.json';
   import MsgDialog from './header/MsgDialog.vue';
   import NewsDialog from './header/NewsDialog.vue';
+  import MenuDropDown from './header/MenuDropDown.vue';
 
   const weatherStore = useWeatherStore();
   const info = computed(() => {

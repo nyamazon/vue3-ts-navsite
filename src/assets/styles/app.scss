@@ -11,3 +11,9 @@ html {
 #app {
   @apply h-full w-full;
 }
+.header-menu-click {
+    @apply flex items-center cursor-pointer;
+    & > .el-icon {
+      @apply mr-1;
+    }
+}

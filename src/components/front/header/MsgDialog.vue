@@ -1,5 +1,8 @@
 <template>
-  <a href="#" @click.prevent="visible = true">留言板</a>
+  <div class="header-menu-click" @click.prevent="visible = true">
+    <el-icon><ChatDotSquare /></el-icon>
+    <span href="#">留言板</span>
+  </div>
   <el-dialog width="400px" title="用户留言" v-model="visible" :modal="false">
     <div class="header space-y-4">
       <div class="box">
@@ -17,16 +20,17 @@
 </template>
 
 <script lang="ts" setup>
-  import useLeaveMsg from '@/hooks/api/useLeaveMsg';
   import useVerify from '@/hooks/api/useVerify';
-  import { reactive, ref } from 'vue';
+  import { ChatDotSquare } from '@element-plus/icons';
+
+  import { ref } from 'vue';
 
   const visible = ref<Boolean>(false);
   const { image, refresh } = useVerify();
-
-  const msgParam = reactive({ page: 1, size: 10 });
-
-  // useLeaveMsg(toRef(msgParam,'page'),toRef(msgParam,'size'),);
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .header-menu-click {
+    @apply flex items-center;
+  }
+</style>

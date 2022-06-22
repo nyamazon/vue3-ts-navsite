@@ -9,6 +9,9 @@ declare module 'vue' {
     ElCascader: typeof import('element-plus/es')['ElCascader']
     ElCasecade: typeof import('element-plus/es')['ElCasecade']
     ElDialog: typeof import('element-plus/es')['ElDialog']
+    ElDropdown: typeof import('element-plus/es')['ElDropdown']
+    ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
+    ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElPopover: typeof import('element-plus/es')['ElPopover']
@@ -18,6 +21,7 @@ declare module 'vue' {
     FrontSearchBox: typeof import('./src/components/front/FrontSearchBox.vue')['default']
     FrontTitle: typeof import('./src/components/front/FrontTitle.vue')['default']
     Loading: typeof import('element-plus/es')['ElLoadingDirective']
+    MenuDropDown: typeof import('./src/components/front/header/MenuDropDown.vue')['default']
     MsgDialog: typeof import('./src/components/front/header/MsgDialog.vue')['default']
     NewsDialog: typeof import('./src/components/front/header/NewsDialog.vue')['default']
   }
