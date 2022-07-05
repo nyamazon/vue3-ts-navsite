@@ -19,12 +19,12 @@
           />
         </template>
         <template #reference>
-          <el-button type="text" @click="showPoper = !showPoper">{{ info }}</el-button>
+          <el-button @click="showPoper = !showPoper" link>{{ info }}</el-button>
         </template>
       </el-popover>
     </div>
     <div class="right">
-      <ul class="flex space-x-4">
+      <ul class="flex space-x-4 text-base">
         <li>
           <NewsDialog />
         </li>

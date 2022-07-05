@@ -15,7 +15,7 @@ export default defineConfig({
     alias: {
       '@': resolve('src'),
     },
-    extensions: ['.ts', '.js', '.mjs'],
+    extensions: ['.ts', '.js', '.mjs', '.vue'],
   },
   plugins: [
     vue(),

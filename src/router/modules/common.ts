@@ -14,6 +14,14 @@ const routes: RouteRecordRaw[] = [
     name: 'test',
     component: () => import('@/pages/Test.vue'),
   },
+  {
+    path: '/admin',
+    name: 'admin',
+    meta: {
+      index: 1,
+    },
+    component: () => import('@/pages/Admin.vue'),
+  },
   // {
   //   path: '/:catchAll(.*)',
   //   meta: {

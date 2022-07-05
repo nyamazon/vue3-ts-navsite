@@ -11,14 +11,14 @@
     <FrontTitle />
     <FrontSearchBox />
 
-    <BoxLoading>加载中...</BoxLoading>
+    <BoxLoading v-show="loadingBoxes">加载中...</BoxLoading>
     <FrontBoxes :boxes="boxes" />
     <FrontFooter />
   </div>
 </template>
 
 <script lang="ts" setup>
-  import useSiteConfig, { useSiteBoxes } from '@/hooks/api/useSiteConfig';
+  // import useSiteConfig, { useSiteBoxes } from '@/hooks/api/useSiteConfig';
   import useSiteSettingsStore from '@/store/hooks/useSiteSettingsStore';
   import { computed, ref, watch } from 'vue';
   import FrontSearchBox from '../components/front/FrontSearchBox.vue';
@@ -62,6 +62,7 @@
     --box-back-hover-color: v-bind(boxBackHoverColor);
     --box-link-hover-color: v-bind(boxLinkHoverColor);
   }
+
   .front {
     @apply h-full w-full;
     @include hide-scroll;

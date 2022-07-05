@@ -2,7 +2,8 @@ import { BasicResp } from './types';
 import useHttp from './useHttp';
 
 export interface IVerify {
-  img_url: string;
+  verify_id: string;
+  verify_img: string;
 }
 
 export const reqVerify = () => {

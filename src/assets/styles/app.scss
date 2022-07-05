@@ -6,14 +6,15 @@ body,
 html {
   // @include hide-scroll;
   @apply h-full w-full;
-  overflow:auto !important;
+  overflow: auto !important;
 }
 #app {
   @apply h-full w-full;
 }
 .header-menu-click {
-    @apply flex items-center cursor-pointer;
-    & > .el-icon {
-      @apply mr-1;
-    }
+  @apply flex items-center cursor-pointer text-base;
+  color: var(--site-name-color);
+  & > .el-icon {
+    @apply mr-1;
+  }
 }
