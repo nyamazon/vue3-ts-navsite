@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind base;
 @import 'mixin';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body,
 html {
   // @include hide-scroll;

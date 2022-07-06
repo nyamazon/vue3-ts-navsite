@@ -19,7 +19,7 @@
           />
         </template>
         <template #reference>
-          <el-button @click="showPoper = !showPoper" link>{{ info }}</el-button>
+          <el-button @click="showPoper = !showPoper" link type="primary">{{ info }}</el-button>
         </template>
       </el-popover>
     </div>
@@ -31,7 +31,7 @@
         <li>
           <MsgDialog />
         </li>
-        <li>最新</li>
+        <li>壁纸</li>
         <li>哈哈</li>
         <li>
           <MenuDropDown />
