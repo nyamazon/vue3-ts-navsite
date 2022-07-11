@@ -7,30 +7,16 @@
     element-loading-background="rgba(122, 122, 122, 0.8)"
   >
     <div class="bg-wrapper"></div>
-    <FrontHeader />
-    <FrontTitle />
-    <FrontSearchBox />
-
-    <BoxLoading v-show="loadingBoxes">加载中...</BoxLoading>
-    <FrontBoxes :boxes="boxes" />
-    <FrontFooter />
+    <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts" setup>
   // import useSiteConfig, { useSiteBoxes } from '@/hooks/api/useSiteConfig';
+  import { computed } from 'vue';
   import useSiteSettingsStore from '@/store/hooks/useSiteSettingsStore';
-  import { computed, ref, watch } from 'vue';
-  import FrontSearchBox from '../components/front/FrontSearchBox.vue';
-  import FrontBoxes from '@/components/front/FrontBoxes.vue';
-  import FrontFooter from '@/components/front/FrontFooter.vue';
   import useSiteData from '@/hooks/app/useSiteData';
-  import FrontTitle from '@/components/front/FrontTitle.vue';
-  import FrontHeader from '@/components/front/FrontHeader.vue';
-  import BoxLoading from '@/components/front/BoxLoading.vue';
-
-  // const { siteConfig } = useSiteConfig();
-  const { boxes, siteConfig, loadingSiteConfig, loadingBoxes } = useSiteData();
+  const { loadingSiteConfig } = useSiteData();
 
   const siteSettings = useSiteSettingsStore();
   const bgImg = computed(() => {
@@ -42,13 +28,6 @@
   const boxBackHoverColor = computed(() => siteSettings.box_back_hover_color || '#fff');
   const boxLinkHoverColor = computed(() => siteSettings.box_link_hover_color || '#fff');
   const siteColorName = computed(() => siteSettings.site_name_color || 'fff');
-  const userID = ref(-1);
-  watch(
-    () => siteConfig.value.id,
-    (id) => (userID.value = id || -1)
-  );
-  // const { boxes } = useSiteBoxes(userID);
-  console.log(userID);
 </script>
 
 <style lang="scss" scoped>

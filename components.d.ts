@@ -4,7 +4,8 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    BoxLoading: typeof import('./src/components/front/BoxLoading.vue')['default']
+    AdminLogin: typeof import('./src/components/front/index/header/AdminLogin.vue')['default']
+    BoxLoading: typeof import('./src/components/front/index/BoxLoading.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCascader: typeof import('element-plus/es')['ElCascader']
@@ -31,17 +32,22 @@ declare module 'vue' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
-    FrontBoxes: typeof import('./src/components/front/FrontBoxes.vue')['default']
-    FrontFooter: typeof import('./src/components/front/FrontFooter.vue')['default']
-    FrontHeader: typeof import('./src/components/front/FrontHeader.vue')['default']
-    FrontLogin: typeof import('./src/components/front/FrontLogin.vue')['default']
-    FrontSearchBox: typeof import('./src/components/front/FrontSearchBox.vue')['default']
-    FrontTitle: typeof import('./src/components/front/FrontTitle.vue')['default']
+    FrontBoxes: typeof import('./src/components/front/index/FrontBoxes.vue')['default']
+    FrontFooter: typeof import('./src/components/front/index/FrontFooter.vue')['default']
+    FrontHeader: typeof import('./src/components/front/index/FrontHeader.vue')['default']
+    FrontIndex: typeof import('./src/components/front/FrontIndex.vue')['default']
+    FrontLogin: typeof import('./src/components/front/index/header/FrontLogin.vue')['default']
+    FrontSearchBox: typeof import('./src/components/front/index/FrontSearchBox.vue')['default']
+    FrontTitle: typeof import('./src/components/front/index/FrontTitle.vue')['default']
+    FrontWallPaper: typeof import('./src/components/front/FrontWallPaper.vue')['default']
     Loading: typeof import('element-plus/es')['ElLoadingDirective']
     Login: typeof import('./src/components/front/Login.vue')['default']
-    MenuDropDown: typeof import('./src/components/front/header/MenuDropDown.vue')['default']
-    MsgDialog: typeof import('./src/components/front/header/MsgDialog.vue')['default']
-    NewsDialog: typeof import('./src/components/front/header/NewsDialog.vue')['default']
+    MenuDropDown: typeof import('./src/components/front/index/header/MenuDropDown.vue')['default']
+    MsgDialog: typeof import('./src/components/front/index/header/MsgDialog.vue')['default']
+    MyLazyLoadImg: typeof import('./src/components/common/MyLazyLoadImg.vue')['default']
+    MyWaterFall: typeof import('./src/components/common/MyWaterFall.vue')['default']
+    MyWaterPull: typeof import('./src/components/common/MyWaterPull.vue')['default']
+    NewsDialog: typeof import('./src/components/front/index/header/NewsDialog.vue')['default']
   }
 }
 

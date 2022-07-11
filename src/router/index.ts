@@ -11,7 +11,7 @@ const allRoutes: RouteRecordRaw[] = [];
 Object.keys(modules).forEach((key) => {
   const mod = modules[key].default || {};
   const modList = Array.isArray(mod) ? [...mod] : [mod];
-  // console.log(modList);
+  console.log(modList);
   allRoutes.push(...modList);
 });
 //sort

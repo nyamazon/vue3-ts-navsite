@@ -110,6 +110,9 @@
     transition: var(--el-transition-all);
     width: auto;
   }
+  .el-menu:not(.el-menu--collapse) {
+    width: 208px;
+  }
   .aside-header {
     width: 208px;
   }
@@ -126,9 +129,6 @@
   }
   .main-layout {
     flex: 1;
-  }
-  .el-menu:not(.el-menu--collapse) {
-    width: 208px;
   }
   .is-rotate {
     transform: rotate(-180deg);

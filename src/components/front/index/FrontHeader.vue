@@ -70,4 +70,8 @@
   const showPoper = ref<Boolean>(false);
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .headers {
+    color: var(--site-name-color);
+  }
+</style>

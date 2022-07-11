@@ -15,4 +15,8 @@
   console.log(refSettings);
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .title {
+    color: var(--site-name-color);
+  }
+</style>

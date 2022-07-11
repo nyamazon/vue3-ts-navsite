@@ -1,11 +1,10 @@
 <template>
-    <footer class="footer">
-      <p>copy;20211 &nbsp; Powered by wudao</p>
-    </footer>
+  <footer class="footer">
+    <p>copy;2021 &nbsp; Powered by xx</p>
+  </footer>
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
   .footer {

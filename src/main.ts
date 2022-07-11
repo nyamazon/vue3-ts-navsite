@@ -10,6 +10,7 @@ import '@purge-icons/generated';
 //pinia
 const pinia = createPinia();
 const app = createApp(App);
+
 app.config.globalProperties.$ELEMENT = {
   size: 'small',
 };

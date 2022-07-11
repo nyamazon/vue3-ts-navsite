@@ -29,7 +29,7 @@
 <script lang="ts" setup>
   import { Menu, User } from '@element-plus/icons';
   import { ref } from 'vue';
-  import Login from '@/components/front/FrontLogin.vue';
+  import Login from './AdminLogin.vue';
   const visible = ref<boolean>(false);
   const handleOpenLogin = () => {
     visible.value = true;
