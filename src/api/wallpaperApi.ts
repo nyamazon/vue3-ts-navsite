@@ -10,7 +10,7 @@ export interface IWallPaperData {
   pic_create_time: Date;
 }
 export const reqWallPaper = () => {
-  return useHttp<BasicResp<IWallPaperData>>({
+  return useHttp<BasicResp<IWallPaperData[]>>({
     url: `wallpaper/getWallPaper`,
     method: 'get',
   });

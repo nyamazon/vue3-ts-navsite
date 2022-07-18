@@ -4,7 +4,7 @@ import { OK_CODE } from '@/app/keys';
 import type { IWallPaperData } from '@/api/wallPaperApi';
 
 const useWallPaper = () => {
-  const wallpaper = ref<Partial<IWallPaperData>>();
+  const wallpaper = ref<IWallPaperData[]>([]);
   const refresh = () => {
     reqWallPaper().then(({ data, code }) => {
       if (code === OK_CODE) {

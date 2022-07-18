@@ -1,8 +1,8 @@
 <template>
   <div ref="waterfallWrapper" class="waterfall-list" :style="{ height: `${wrapperHeight}px` }">
-    <div v-for="(item, index) in list" :key="getKey(item, index)" class="waterfall-item">
+    <div v-for="(item, index) in list" :key="item.pic_id" class="waterfall-item">
       <div class="waterfall-card">
-        <slot name="item" :item="item" :index="index" :url="item.thumb_url" />
+        <slot name="item" :item="item" :index="index" :url="item.pic_thumb_url" />
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
   import Lazy from './utils/Lazy';
   import { getValue } from './utils/util';
   // import type { ViewCard } from './types/waterfall';
-  import type { LazyOptions } from './lazy';
+  import type { LazyOptions } from './types/lazy';
   import type { IWallPaperData } from '@/api/wallpaperApi';
   interface ViewCard {
     pic_id: string;
@@ -33,20 +33,20 @@
   type Breakpoints = Record<number, Point>;
 
   interface WaterfallProps {
-    breakpoints: Breakpoints;
-    width: number;
-    animationDuration: number;
-    animationDelay: number;
-    animationEffect: string;
-    hasAroundGutter: boolean;
-    gutter: number;
-    list: IWallPaperData[];
-    animationPrefix: string;
+    breakpoints?: Breakpoints;
+    width?: number;
+    animationDuration?: number;
+    animationDelay?: number;
+    animationEffect?: string;
+    hasAroundGutter?: boolean;
+    gutter?: number;
+    list?: IWallPaperData[];
+    animationPrefix?: string;
     rowKey?: string;
     imgSelector?: string;
     backgroundColor?: string;
     lazyload?: boolean;
-    loadProps: LazyOptions | {};
+    loadProps?: LazyOptions | {};
     delay?: number;
   }
   const props = withDefaults(defineProps<WaterfallProps>(), {
@@ -72,10 +72,11 @@
     animationDuration: 1000,
     animationDelay: 300,
     backgroundColor: '#fff',
-    lazyload: true,
+    lazyload: false,
     loadProps: () => ({}),
     delay: 300,
   });
+  console.log('propspropspropspropsprops', props);
   const lazy = new Lazy(props.lazyload, props.loadProps);
   provide('lazy', lazy);
   // 容器块信息
@@ -108,9 +109,9 @@
     return getValue(item, props.imgSelector)[0];
   };
   // 获取唯一值
-  const getKey = (item: ViewCard, index: number): string => {
-    return item[props.rowKey] || index;
-  };
+  // const getKey = (item: ViewCard, index: number): string => {
+  //   return item[props.rowKey] || index;
+  // };
 </script>
 
 <style scoped>

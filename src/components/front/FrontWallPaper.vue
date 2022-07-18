@@ -1,13 +1,13 @@
 <template>
   <div class="wallpaper">
-    <MyWaterFall :list="wallpaper">
+    <!-- <MyWaterFall :list="wallpaper">
       <template #item="{ item, url, index }">
         <div class="card">
           <MyLazyLoadImg :url="url" />
-          <p class="text">这是内容</p>
         </div>
       </template>
-    </MyWaterFall>
+    </MyWaterFall> -->
+    <MyWallPaper :data="wallpaper"></MyWallPaper>
   </div>
 </template>
 
@@ -15,9 +15,10 @@
   // import { ref } from 'vue'
   // import MyWaterFall from '@/components/common/MyWaterFall.vue'
   // import MyLazyLoadImg from '@/components/common/MyLazyLoadImg.vue'
+  import MyWallPaper from '@/components/common/MyWallPaper.vue';
   import useWallPaper from '@/hooks/api/useWallPaper';
 
-  const { wallpaper, refresh } = useWallPaper();
+  const { wallpaper } = useWallPaper();
   console.log(wallpaper);
 </script>
 

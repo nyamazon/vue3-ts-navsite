@@ -4,14 +4,14 @@
  */
 export function loadImage(url: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
-    const image = new Image()
+    const image = new Image();
     image.onload = () => {
-      resolve(image)
-    }
+      resolve(image);
+    };
     image.onerror = () => {
-      reject(new Error('Image load error'))
-    }
-    image.crossOrigin = 'Anonymous' // 支持跨域图片
-    image.src = url
-  })
+      reject(new Error('Image load error'));
+    };
+    image.src = url;
+    console.log('imagesssssss', image);
+  });
 }
