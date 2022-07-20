@@ -11,6 +11,7 @@ const resolve = (p: string) => {
   return path.resolve(__dirname, p);
 };
 export default defineConfig({
+  base: './',
   resolve: {
     alias: {
       '@': resolve('src'),
@@ -41,6 +42,21 @@ export default defineConfig({
       ],
     }),
   ],
+  build: {
+    assetsDir: 'static/img/',
+    rollupOptions: {
+      // external: ['vue'],
+      output: {
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/js/[name]-[hash].js',
+        assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+      },
+    },
+    outDir: 'public',
+    minify: 'terser', // 混淆器，terser构建后文件体积更小
+    brotliSize: false, // 不统计
+    sourcemap: false,
+  },
   // server: {
   //   proxy: {
   //     '/api': {

@@ -3,28 +3,19 @@
     <div class="wallpaper-boxes">
       <div class="wallpaper-item" v-for="(item, index) in data" :key="getKey(item, index)">
         <img :src="item.pic_thumb_url" :alt="item.pic_name" @click="onPreview(item.pic_id)" />
-        <!--<el-image-->
-        <!--  :src="item.pic_thumb_url"-->
-        <!--  :alt="item.pic_name"-->
-        <!--  @click="onPreview(item.pic_id)"-->
-        <!--  :preview-src-list="originPicList"-->
-        <!--&gt;</el-image>-->
       </div>
     </div>
-    <!--    <ElImageViewer
+    <MyImageViewer
       v-if="viewerVisible"
-      :url-list="originPicList"
+      :src="originPicList[0]"
       hide-on-click-modal
-      :initial-index="0"
       @close="handleViewerClose"
-    ></ElImageViewer>-->
-    <MyImageViewer :src="originPicList[0]" v-if="viewerVisible" />
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
   import { toRefs, ref } from 'vue';
-  import ElImageViewer from 'element-plus/lib/components/image-viewer/index';
   import MyImageViewer from './MyImageViewer.vue';
   // import type { IWallPaperData } from '@/api/wallpaperApi';
   interface IWallPaperData {
@@ -56,6 +47,7 @@
     viewerVisible.value = true;
   };
   const handleViewerClose = () => {
+    console.log('enter');
     viewerVisible.value = false;
   };
 </script>
@@ -64,7 +56,7 @@
   .wallpaper {
     @apply h-full w-full flex justify-center items-center;
     .wallpaper-boxes {
-      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 mt-5 py-3 max-w-screen-2xl;
+      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 py-3 max-w-screen-2xl;
       .wallpaper-item {
         @apply h-64 bg-gray-400 shadow-sm m-2 rounded;
         & > img {

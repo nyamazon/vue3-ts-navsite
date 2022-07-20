@@ -1,4 +1,4 @@
-import { BasicResp } from './types';
+import { WallListResp } from './types';
 import useHttp from './useHttp';
 
 export interface IWallPaperData {
@@ -9,9 +9,14 @@ export interface IWallPaperData {
   pic_thumb_url: string;
   pic_create_time: Date;
 }
-export const reqWallPaper = () => {
-  return useHttp<BasicResp<IWallPaperData[]>>({
+export interface IPaginationData {
+  currentPage: number;
+  pageSize?: number;
+}
+export const reqWallPaper = (paginationData: IPaginationData = { currentPage: 1 }) => {
+  return useHttp<WallListResp<IWallPaperData[]>>({
     url: `wallpaper/getWallPaper`,
     method: 'get',
+    params: { ...paginationData },
   });
 };

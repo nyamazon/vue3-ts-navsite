@@ -4,7 +4,6 @@ import useSiteSettingsStore from '@/store/hooks/useSiteSettingsStore';
 import useSearchConfigStore from '@/store/hooks/useSearchConfigStore';
 import useWeather from '@/hooks/api/useWeather';
 import useWeatherStore from '@/store/hooks/useWeatherStore';
-import useHeadLink from '@/hooks/useHeadLink';
 import useNewsStore from '@/store/hooks/useNewsStore';
 import useNews from '@/hooks/api/useNews';
 
@@ -27,7 +26,6 @@ const useSiteData = () => {
       siteSettings.load(siteConfig.value);
       searchConfigStore.load(searchConfig.value);
       //iconfont
-      useHeadLink('iconfont', 'link', siteConfig.value.icon_url || '');
     }
   );
   const { boxes, loading: loadingBoxes } = useSiteBoxes(userID);

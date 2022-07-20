@@ -31,7 +31,13 @@
         <li>
           <MsgDialog />
         </li>
-        <li>壁纸</li>
+        <li
+          class="flex justify-center items-center space-x-1"
+          @click="jumpRouter('/front/wallpaper')"
+        >
+          <el-icon><Camera /></el-icon>
+          <span>壁纸</span>
+        </li>
         <li>哈哈</li>
         <li>
           <MenuDropDown />
@@ -48,6 +54,9 @@
   import MsgDialog from './header/MsgDialog.vue';
   import NewsDialog from './header/NewsDialog.vue';
   import MenuDropDown from './header/MenuDropDown.vue';
+  import { useRouter } from 'vue-router';
+  const router = useRouter();
+  import { Camera } from '@element-plus/icons';
 
   const weatherStore = useWeatherStore();
   const info = computed(() => {
@@ -64,14 +73,20 @@
     } finally {
       showPoper.value = false;
     }
-
-    // 因为在hooks 里 useWeather 对weatherStore.city属性做了监听，我一但用了action的方法改变了$state的属性，hooks坚挺到后就会重新发起请求返回数据。
+    // 因为在hooks 里 useWeather 对weatherStore.city属性做了监听，我一但用了action的方法改变了$state的属性，hook监听到后就会重新发起请求返回数据。
   };
   const showPoper = ref<Boolean>(false);
+
+  const jumpRouter = (routerPath: string) => {
+    router.push(routerPath);
+  };
 </script>
 
 <style lang="scss" scoped>
   .headers {
     color: var(--site-name-color);
+  }
+  .right > ul > li {
+    @apply cursor-pointer;
   }
 </style>

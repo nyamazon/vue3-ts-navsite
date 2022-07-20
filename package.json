@@ -12,7 +12,7 @@
   "description": "A vite template with vue,tailwindcss,element-plus,vue-router,pinia2",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build --mode production",
     "serve": "vite preview"
   },
   "dependencies": {
