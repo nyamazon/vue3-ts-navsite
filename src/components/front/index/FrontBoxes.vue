@@ -55,11 +55,32 @@
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-5;
 
     .box {
-      @apply bg-gray-800 bg-opacity-50 rounded-lg p-3 m-1 border border-gray-300;
+      @apply bg-gray-800 bg-opacity-40 rounded-lg p-3 m-1  border-gray-300;
       color: var(--box-background-color);
-
+      position: relative;
+      overflow: hidden;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
       &:hover {
-        background-color: var(--box-back-hover-color);
+      }
+      &:hover:after {
+        -webkit-transform: rotate(-45deg) scale(1.5) translate(0%, 0%);
+        transform: rotate(-45deg) scale(1.5) translate(0%, 0%);
+      }
+      &::after {
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #2ecc71;
+        content: '';
+        z-index: -1;
+        display: inline-block;
+        -webkit-transform: rotate(-45deg) scale(1.5) translate(0%, -100%);
+        transform: rotate(-45deg) scale(1.5) translate(0%, -100%);
       }
 
       .box-title {
@@ -85,7 +106,7 @@
           color: var(--box-link-color);
 
           &:hover {
-            color: var(--box-link-hover-color);
+            color: #e74c3c;
           }
         }
       }

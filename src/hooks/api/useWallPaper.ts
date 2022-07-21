@@ -2,13 +2,18 @@ import { Ref, ref, watch } from 'vue';
 import { reqWallPaper } from '@/api/wallPaperApi';
 import { OK_CODE } from '@/app/keys';
 import type { IWallPaperData } from '@/api/wallPaperApi';
+import { backTop } from '@/hooks/useBackTop';
 
 const useWallPaper = (currentPage: Ref<number>) => {
   const wallpaper = ref<IWallPaperData[]>([]);
   const loading = ref<boolean>(false);
   const wallpaperTotal = ref<number>(0);
 
-  watch(currentPage, () => refresh());
+  watch(currentPage, async () => {
+    await backTop();
+    console.log('enter');
+    refresh();
+  });
   const refresh = () => {
     loading.value = true;
     reqWallPaper({ currentPage: currentPage.value })

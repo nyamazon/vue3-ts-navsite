@@ -12,7 +12,7 @@
   // const { site_name, site_desc } = useSiteSettingsStore();
   const siteSetting = useSiteSettingsStore();
   const refSettings = storeToRefs(siteSetting);
-  console.log(refSettings);
+  console.log('===============', refSettings, refSettings.site_desc);
 </script>
 
 <style lang="scss" scoped>

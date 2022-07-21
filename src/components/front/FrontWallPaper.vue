@@ -1,5 +1,5 @@
 <template>
-  <div class="wallpaper">
+  <div class="wallpaper" id="wallpaper">
     <!-- <MyWaterFall :list="wallpaper">
       <template #item="{ item, url, index }">
         <div class="card">
@@ -30,7 +30,6 @@
   /* 分页逻辑处理开始 */
   const currentPage = ref<number>(1);
   const { wallpaper, loading, wallpaperTotal: total } = useWallPaper(currentPage);
-  console.log(wallpaper);
 </script>
 
 <style lang="scss" scoped>

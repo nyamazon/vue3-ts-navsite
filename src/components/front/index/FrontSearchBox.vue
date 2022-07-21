@@ -94,7 +94,7 @@
   .search-box {
     @apply relative w-full lg:w-128 sm:w-96 mx-auto mt-5;
     .search-input {
-      @apply text-black outline-none w-full pl-2 pr-6 py-2 focus:bg-opacity-60 rounded-xl;
+      @apply text-black outline-none w-full pl-2 pr-6 py-2 focus:bg-opacity-60 rounded-xl transition;
       color: var(--box-title-color);
       background: var(--box-background-color);
       &:hover {
