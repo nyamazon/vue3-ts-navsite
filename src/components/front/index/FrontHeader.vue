@@ -1,5 +1,5 @@
 <template>
-  <div class="headers flex justify-between px-2">
+  <div class="headers flex justify-center sm:justify-between px-2 flex-wrap">
     <div class="left">
       <el-popover
         :visible="showPoper"
@@ -24,7 +24,7 @@
       </el-popover>
     </div>
     <div class="right">
-      <ul class="flex space-x-4 text-base">
+      <ul class="flex 2xl:space-x-4 2xl:text-base space-x-2 text-base">
         <li>
           <NewsDialog />
         </li>
@@ -55,9 +55,9 @@
   import NewsDialog from './header/NewsDialog.vue';
   import MenuDropDown from './header/MenuDropDown.vue';
   import { useRouter } from 'vue-router';
-  const router = useRouter();
   import { Camera } from '@element-plus/icons';
 
+  const router = useRouter();
   const weatherStore = useWeatherStore();
   const info = computed(() => {
     const temp = weatherStore.data.data?.weather.content;

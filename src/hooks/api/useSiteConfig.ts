@@ -35,7 +35,7 @@ export const useSiteBoxes = (userID: Ref<number | undefined>) => {
   const refresh = async () => {
     loading.value = true;
     if (!userID.value || userID.value <= 0) return;
-    let { code, data } = await reqSiteBoxes(userID.value);
+    let { code, data } = await reqSiteBoxes();
     loading.value = false;
     if (code === OK_CODE) {
       boxes.value = data;

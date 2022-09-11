@@ -23,3 +23,18 @@ html {
     @apply mr-1;
   }
 }
+
+
+
+// 修复？ color-picker样式
+.v3-c-p {
+  svg {
+    display: initial;
+  }
+}
+.color-picker {
+  box-sizing: content-box;
+}
+.color-picker > * {
+  box-sizing: content-box;
+}

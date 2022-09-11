@@ -22,6 +22,7 @@ const useSiteData = () => {
     },
     (id) => {
       if (!id || id <= 0) return;
+      console.log("enter load")
       userID.value = id!;
       siteSettings.load(siteConfig.value);
       searchConfigStore.load(searchConfig.value);

@@ -1,4 +1,5 @@
 import { Ref } from 'vue';
+import loading from '@/assets/image/loading.gif';
 
 export default {
   install(app: any) {
@@ -8,9 +9,16 @@ export default {
         const observer = new IntersectionObserver(
           ([{ isIntersecting }]) => {
             if (isIntersecting) {
+              //回收
               observer.unobserve(el);
               // 表示绑定的 dom 进入可视区域
-              el.src = bindings.value;
+              el.src = loading;
+              let image: HTMLImageElement | null = new Image();
+              image.src = bindings.value;
+              image.onload = () => {
+                el.src = bindings.value;
+                image = null;
+              };
             }
           },
           {

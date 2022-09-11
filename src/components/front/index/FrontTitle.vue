@@ -1,7 +1,7 @@
 <template>
   <div class="title text-center mt-8">
-    <h3 class="font-bold text-5xl">{{ siteSetting.$state.site_name }}</h3>
-    <div class="desc mt-6 text-sm">{{ refSettings.site_desc }}</div>
+    <h3 class="font-bold text-5xl">{{ site_name }}</h3>
+    <div class="desc mt-6 text-sm">{{ site_desc }}</div>
   </div>
 </template>
 
@@ -9,10 +9,9 @@
   import useSiteSettingsStore from '@/store/hooks/useSiteSettingsStore';
   import { storeToRefs } from 'pinia';
 
-  // const { site_name, site_desc } = useSiteSettingsStore();
   const siteSetting = useSiteSettingsStore();
-  const refSettings = storeToRefs(siteSetting);
-  console.log('===============', refSettings, refSettings.site_desc);
+  const { site_name, site_desc } = storeToRefs(siteSetting);
+  // console.log('头部名称', siteSetting);
 </script>
 
 <style lang="scss" scoped>

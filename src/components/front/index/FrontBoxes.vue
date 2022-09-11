@@ -30,7 +30,7 @@
   watch(
     () => props.boxes,
     () => {
-      console.log('boxess', props.boxes);
+      // console.log('boxess', props.boxes);
       props.boxes.forEach((item: IBoxesData) => {
         notices.value[item.id] = item.introduction;
       });

@@ -12,30 +12,34 @@
   "description": "A vite template with vue,tailwindcss,element-plus,vue-router,pinia2",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build --mode production",
+    "build": "vite build --mode production",
+    "build1": "vue-tsc --noEmit --skipLibCheck && vite build --mode production",
     "serve": "vite preview"
   },
   "dependencies": {
+    "@ckpack/vue-color": "^1.2.0",
     "@element-plus/icons": "^0.0.11",
+    "@element-plus/icons-vue": "^2.0.9",
     "@iconify/iconify": "^2.0.4",
     "@iconify/json": "^1.1.421",
-    "@vueuse/core": "^8.9.1",
+    "@vueuse/core": "^8.9.4",
     "axios": "^0.24.0",
     "clipboard": "^2.0.8",
     "dayjs": "^1.10.7",
-    "element-plus": "^2.2.8",
+    "element-plus": "^2.2.16",
     "lodash-es": "^4.17.21",
     "pinia": "2.0.5",
+    "v3-color-picker": "^1.0.3",
     "vite-plugin-purge-icons": "^0.7.0",
-    "vue": "^3.2.16",
-    "vue-router": "4"
+    "vue": "^3.2.39",
+    "vue-router": "^4.1.5"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.5",
     "@types/node": "14.17.4",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
-    "@vitejs/plugin-vue": "^1.9.3",
+    "@vitejs/plugin-vue": "^1.10.2",
     "autoprefixer": "^10.4.0",
     "eslint": "^8.1.0",
     "eslint-config-prettier": "^8.3.0",
@@ -45,12 +49,12 @@
     "prettier": "^2.4.1",
     "sass": "^1.43.4",
     "tailwindcss": "^2.2.19",
-    "typescript": "^4.4.3",
+    "typescript": "^4.8.3",
     "unplugin-auto-import": "^0.5.4",
     "unplugin-vue-components": "^0.17.9",
-    "vite": "^2.6.4",
+    "vite": "^2.9.15",
     "vite-plugin-html": "^2.1.1",
     "vue-eslint-parser": "^8.0.0",
-    "vue-tsc": "^0.3.0"
+    "vue-tsc": "^0.40.13"
   }
 }

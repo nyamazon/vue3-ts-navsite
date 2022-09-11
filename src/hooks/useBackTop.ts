@@ -1,4 +1,4 @@
-export const backTop = () => {
+export const backTop = ():Promise<boolean> => {
   return new Promise((resolve) => {
     const dom = document.getElementsByClassName('front')[0];
     let top = dom.scrollTop as number; //获取点击时页面的滚动条纵坐标位置

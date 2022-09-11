@@ -35,6 +35,29 @@ const routes: RouteRecordRaw[] = [
       index: 1,
     },
     component: () => import('@/pages/Admin.vue'),
+    children:[
+      {
+        path:'',
+        name:'kongbai',
+        redirect:'/admin/settings'
+      },
+      {
+        path:'settings',
+        component:() => import('@/components/admin/main/AdminSettings.vue')
+      },
+      {
+        path:'wallpaper',
+        component:() => import('@/components/admin/main/AdminWallpaper.vue')
+      },
+      {
+        path:'leaveMsg',
+        component:() => import('@/components/admin/main/AdminLeaveMsg.vue')
+      },
+      {
+        path: 'account',
+        component:() => import('@/components/admin/main/AdminAccount.vue')
+      }
+    ]
   },
   // {
   //   path: '/:catchAll(.*)',

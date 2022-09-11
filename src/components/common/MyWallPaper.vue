@@ -2,13 +2,13 @@
   <div class="wallpaper">
     <div class="wallpaper-boxes">
       <div class="wallpaper-item" v-for="(item, index) in data" :key="getKey(item, index)">
-        <!--<img v-lazyload="item.pic_thumb_url" :alt="item.pic_name" @click="onPreview(item.pic_id)" />-->
-        <img
-          :src="item.pic_thumb_url"
-          :alt="item.pic_name"
-          loading="lazy"
-          @click="onPreview(item.pic_id)"
-        />
+        <img v-lazyload="item.pic_thumb_url" :alt="item.pic_name" @click="onPreview(item.pic_id)" />
+        <!--<img-->
+        <!--  :src="item.pic_thumb_url"-->
+        <!--  :alt="item.pic_name"-->
+        <!--  loading="lazy"-->
+        <!--  @click="onPreview(item.pic_id)"-->
+        <!--/>-->
       </div>
     </div>
     <MyImageViewer

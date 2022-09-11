@@ -27,9 +27,6 @@ export interface ILink {
 
 export interface ISite_config {
   id: number;
-  suffix: string;
-  theme: string;
-  icon_url: string;
   site_name: string;
   other_background_image: string;
   site_desc: string;
@@ -37,16 +34,18 @@ export interface ISite_config {
   background_image: string;
   background_color: string;
   pure_background: boolean;
-  background_music: string;
+  background_music?: string;
   box_link_align: string;
   site_name_color: string;
   box_background_color: string;
+  box_background_hover_color: string;
   box_title_color: string;
   box_link_color: string;
   box_link_hover_color: string;
   box_back_hover_color: string;
-  bg_mask_color: string;
-  site_notice: string;
+  background_mask_color: string;
+  box_hint_color:string;
+  site_desc_color:string;
 }
 
 export interface IUser_info {
@@ -84,7 +83,7 @@ export interface ILink {
   description: string;
   created_at: string;
 }
-export const reqSiteBoxes = (id: number) => {
+export const reqSiteBoxes = () => {
   return useHttp<BasicResp<IBoxesData[]>>({
     // url: `/box/v1/all/links/${id}`,
     url: `webmain/links`,
