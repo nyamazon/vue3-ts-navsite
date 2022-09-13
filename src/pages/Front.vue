@@ -7,26 +7,16 @@
     element-loading-background="rgba(122, 122, 122, 0.8)"
   >
     <div class="bg-wrapper"></div>
-    <FrontIndex v-if="props.type === 'index'" />
-    <router-view v-else-if="props.type === 'router'"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts" setup>
-  // import useSiteConfig, { useSiteBoxes } from '@/hooks/api/useSiteConfig';
   import { computed } from 'vue';
   import useSiteSettingsStore from '@/store/hooks/useSiteSettingsStore';
   import useSiteData from '@/hooks/app/useSiteData';
-  import FrontIndex from '@/components/front/FrontIndex.vue';
   import useStorage from '@/hooks/useStorage';
-  const props = withDefaults(
-    defineProps<{
-      type: 'index' | 'router';
-    }>(),
-    {
-      type: 'router',
-    }
-  );
+
   const { loadingSiteConfig } = useSiteData();
 
   const siteSettings = useSiteSettingsStore();
@@ -38,7 +28,9 @@
   const boxBackgroundColor = computed(() => siteSettings.box_background_color || '#fff');
   const boxBackHoverColor = computed(() => siteSettings.box_background_hover_color || '#fff');
   const boxLinkHoverColor = computed(() => siteSettings.box_link_hover_color || '#fff');
-  const siteColorName = computed(() => siteSettings.site_name_color || 'fff');
+  const bgColor = computed(() => siteSettings.background_color || '#fff');
+  const siteColorName = computed(() => siteSettings.site_name_color || '#fff');
+  const descColorName = computed(() => siteSettings.site_desc_color || '#fff');
 
   /**
    * 实时更新用
@@ -46,7 +38,7 @@
   const { getItem } = useStorage();
   const updateStorage = () => {
     const val = getItem(siteSettings.$id);
-    console.log('valllllllll,', val);
+    // console.log('valllllllll,', val);
     siteSettings.load({ ...val });
   };
   window.addEventListener('storage', updateStorage);
@@ -56,7 +48,9 @@
   @import '../assets/styles/mixin';
 
   :global(.front) {
+    --bg-color: v-bind(bgColor);
     --site-name-color: v-bind(siteColorName);
+    --desc-name-color: v-bind(descColorName);
     --box-title-color: v-bind(boxTitleColor);
     --box-link-color: v-bind(boxLinkColor);
     --box-background-color: v-bind(boxBackgroundColor);

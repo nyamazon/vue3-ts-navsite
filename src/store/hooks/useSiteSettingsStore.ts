@@ -31,7 +31,7 @@ const useSiteSettingsStore = defineStore({
   actions: {
     load(val: any) {
       // this.$state = { ...this.$state, ...val };
-      console.log("fix val,",val);
+      // console.log("fix val,",val);
       this.$patch({ ...val });
     },
   },
@@ -40,9 +40,9 @@ const useSiteSettingsStore = defineStore({
 const instance = useSiteSettingsStore();
 const data = getItem(instance.$id);
 instance.$subscribe((_, state) => {
-  console.log('sub', state);
+  // console.log('sub', state);
   setItem(instance.$id, { ...state });
-  console.log("after subs",instance.$state)
+  // console.log("after subs",instance.$state)
 });
 // 如果最开始Localstorage里有值，那么就存到state里去
 if(data) instance.load(data);

@@ -11,7 +11,7 @@
         <el-form-item label="背景图片地址">
           <el-input v-model="form.background_image" />
         </el-form-item>
-        <el-form-item label="用户名取色">
+        <el-form-item label="主题颜色取色">
           <div class="flex space-x-3">
             <v3-color-picker v-model:value="form.site_name_color" size="medium"></v3-color-picker>
             <el-input v-model="form.site_name_color" />
@@ -115,28 +115,38 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center items-center h-12">
-      <el-button type="primary" size="default">确定修改</el-button>
+    <div class="flex justify-center items-center bg-white pb-10">
+      <el-button type="primary" size="large" @click="handleUpdate">确定修改</el-button>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
   import phoneImg from '@/assets/image/phone.png';
-  import Front from '@/pages/Front.vue';
+  // import Front from '@/pages/Front.vue';
   import { reactive, watch } from 'vue';
-  import { V3ColorPicker } from 'v3-color-picker';
-  import useSiteSettingsStore from '@/store/hooks/useSiteSettingsStore';
   import { storeToRefs } from 'pinia';
+
+  import { V3ColorPicker } from 'v3-color-picker';
+  import { ElNotification } from 'element-plus';
+
+  import useSiteSettingsStore from '@/store/hooks/useSiteSettingsStore';
+  import { updateSettingsApi } from '@/api/backend/indexSettingsApi';
+  import { ElNotificationMessageModel } from '@/model/message/ElNotificationMessageModel';
+
   const siteSettingStore = useSiteSettingsStore();
   const form = reactive({
     ...storeToRefs(siteSettingStore),
   });
   watch(form, () => {
-    console.log({ ...form });
-    // const val = toRaw(form);
     siteSettingStore.load({ ...form });
   });
+  const handleUpdate = () => {
+    updateSettingsApi({ ...form }).then((res) => {
+      const message = ElNotificationMessageModel(res) as Partial<NotificationOptions>;
+      ElNotification(message);
+    });
+  };
 </script>
 
 <style lang="scss" scoped>

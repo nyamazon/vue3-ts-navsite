@@ -5,7 +5,7 @@
   </div>
 
   <el-dialog
-    custom-class="my-dialog"
+    class="my-dialog"
     width="600px"
     v-model="newsVisible"
     title="每天读懂世界60s"
