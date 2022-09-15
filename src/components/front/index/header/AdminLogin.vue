@@ -1,7 +1,7 @@
 <template>
   <el-dialog width="400px" title="登录" v-model="myVisible" @close="handleClose">
     <el-row class="login-box">
-      <el-form :model="userForm" label-width="20%" ref="formRef" :rules="rules">
+      <el-form :model="userForm" label-width="auto" ref="formRef" :rules="rules">
         <el-form-item label="用户账号" prop="username">
           <el-col :span="24">
             <el-input v-model="userForm.username" />
@@ -9,13 +9,13 @@
         </el-form-item>
         <el-form-item label="用户密码" prop="password">
           <el-col>
-            <el-input v-model="userForm.password" />
+            <el-input v-model="userForm.password" type="password" />
           </el-col>
         </el-form-item>
-        <el-form-item label="验证码" prop="verify">
+        <el-form-item label="验证码" prop="verify.value">
           <el-row :gutter="10">
             <el-col :span="14" class="flex justify-center items-center">
-              <el-input v-model="userForm.verify.value" placeholder="请输入验证码" clearable />
+              <el-input v-model="userForm.verify.value" clearable />
             </el-col>
             <el-col :span="10">
               <img :src="verify.verify_img" alt="" @click="verifyRefresh" class="cursor-pointer" />
@@ -42,7 +42,7 @@
   import { resetForm } from '@/utils/form';
   import { useRouter } from 'vue-router';
   import { OK_CODE } from '@/app/keys';
-  import { ElMessageBox } from 'element-plus';
+  import { ElMessage, ElMessageBox } from 'element-plus';
 
   type Props = {
     visible: boolean;
@@ -79,7 +79,7 @@
       { required: true, message: '（╬￣皿￣）请输入密码!', trigger: 'blur' },
       { min: 3, max: 16, message: '密码长度不符合规范,请修改!', trigger: 'blur' },
     ],
-    verify: [{ required: true, message: '∑(⊙▽⊙"请认真的输入验证码!', trigger: 'blur' }],
+    ['verify.value']: [{ required: true, message: '∑(⊙▽⊙"请认真的输入验证码!', trigger: 'blur' }],
   });
 
   const handleClose = () => {
@@ -87,21 +87,26 @@
     resetForm(formRef.value);
   };
   const router = useRouter();
-  const handleLogin = () => {
-    // 装填数据
-    userForm.value.verify.id = verify.value.verify_id;
-    const { returnUserMessage } = useUserLogin(userForm, loading);
-    if (returnUserMessage.value.code === OK_CODE) {
-      router.push('/admin');
-    } else {
-      ElMessageBox.alert(returnUserMessage.value.msg, '登录失败!', {
-        confirmButtonText: 'OK',
-        callback: () => {
-          userForm.value.password = '';
-          verifyRefresh();
-        },
-      });
-    }
+  const handleLogin = async () => {
+    await formRef.value?.validate(async (vaild) => {
+      if (!vaild) {
+        return ElMessage.error('请检查是否有未填写的输入项!');
+      }
+      // 装填数据
+      userForm.value.verify.id = verify.value.verify_id;
+      const returnUserMessage = await useUserLogin(userForm, loading);
+      if (returnUserMessage.value.code === OK_CODE) {
+        router.push('/admin');
+      } else {
+        ElMessageBox.alert(returnUserMessage.value.msg, '登录失败!', {
+          confirmButtonText: 'OK',
+          callback: () => {
+            userForm.value.password = '';
+            verifyRefresh();
+          },
+        });
+      }
+    });
   };
 </script>
 

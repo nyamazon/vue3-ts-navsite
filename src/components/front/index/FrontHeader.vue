@@ -24,7 +24,7 @@
       </el-popover>
     </div>
     <div class="right">
-      <ul class="flex 2xl:space-x-4 2xl:text-base space-x-2 text-base">
+      <ul class="right-ul flex 2xl:space-x-4 2xl:text-base space-x-2 text-base">
         <li>
           <NewsDialog />
         </li>
@@ -32,13 +32,13 @@
           <MsgDialog />
         </li>
         <li
-          class="flex justify-center items-center space-x-1"
+          class="flex justify-center items-center space-x-1 cursor-pointer"
           @click="jumpRouter('/front/wallpaper')"
         >
           <el-icon><Camera /></el-icon>
           <span>壁纸</span>
         </li>
-        <li>哈哈</li>
+        <li class="cursor-pointer">哈哈</li>
         <li>
           <MenuDropDown />
         </li>
@@ -75,7 +75,7 @@
     }
     // 因为在hooks 里 useWeather 对weatherStore.city属性做了监听，我一但用了action的方法改变了$state的属性，hook监听到后就会重新发起请求返回数据。
   };
-  const showPoper = ref<Boolean>(false);
+  const showPoper = ref<boolean>(false);
 
   const jumpRouter = (routerPath: string) => {
     router.push(routerPath);
@@ -85,8 +85,5 @@
 <style lang="scss" scoped>
   .headers {
     color: var(--site-name-color);
-  }
-  .right > ul > li {
-    @apply cursor-pointer;
   }
 </style>
