@@ -38,7 +38,10 @@
           <el-icon><Camera /></el-icon>
           <span>壁纸</span>
         </li>
-        <li class="cursor-pointer">哈哈</li>
+        <li class="cursor-pointer">
+          <el-icon><Promotion /></el-icon>
+          <span>聊天室</span>
+        </li>
         <li>
           <MenuDropDown />
         </li>
@@ -55,7 +58,7 @@
   import NewsDialog from './header/NewsDialog.vue';
   import MenuDropDown from './header/MenuDropDown.vue';
   import { useRouter } from 'vue-router';
-  import { Camera } from '@element-plus/icons';
+  import { Camera,Promotion } from '@element-plus/icons';
 
   const router = useRouter();
   const weatherStore = useWeatherStore();

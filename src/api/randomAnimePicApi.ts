@@ -1,4 +1,3 @@
-import { BasicResp } from './types';
 import useHttp from './useHttp';
 
 

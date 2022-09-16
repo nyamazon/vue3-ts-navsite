@@ -91,6 +91,9 @@
             <el-input v-model="form.box_link_hover_color" />
           </div>
         </el-form-item>
+        <div class="flex justify-center items-center bg-white pb-10">
+          <el-button type="primary" size="large" @click="handleUpdate">确定修改</el-button>
+        </div>
       </el-form>
       <div class="real-time-review flex-1 block relative">
         <!-- <div
@@ -120,9 +123,9 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center items-center bg-white pb-10">
+    <!-- <div class="flex justify-center items-center bg-white pb-10">
       <el-button type="primary" size="large" @click="handleUpdate">确定修改</el-button>
-    </div>
+    </div> -->
   </div>
 </template>
 
