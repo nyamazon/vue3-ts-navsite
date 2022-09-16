@@ -9,7 +9,12 @@
           <el-input v-model="form.site_desc" />
         </el-form-item>
         <el-form-item label="背景图片地址">
-          <el-input v-model="form.background_image" />
+          <div class="flex w-full space-x-6">
+            <el-input class="flex-1" v-model="form.background_image" />
+            <el-button type="primary" :icon="PictureRounded" @click="randomPicClick">
+              随机二次元图片
+            </el-button>
+          </div>
         </el-form-item>
         <el-form-item label="主题颜色取色">
           <div class="flex space-x-3">
@@ -129,10 +134,12 @@
 
   import { V3ColorPicker } from 'v3-color-picker';
   import { ElNotification } from 'element-plus';
+  import { PictureRounded } from '@element-plus/icons-vue';
 
   import useSiteSettingsStore from '@/store/hooks/useSiteSettingsStore';
   import { updateSettingsApi } from '@/api/backend/indexSettingsApi';
   import { ElNotificationMessageModel } from '@/model/message/ElNotificationMessageModel';
+  import { useRandomAnimePic } from '@/hooks/api/useRandomAnimePic';
 
   const siteSettingStore = useSiteSettingsStore();
   const form = reactive({
@@ -146,6 +153,11 @@
       const message = ElNotificationMessageModel(res) as Partial<NotificationOptions>;
       ElNotification(message);
     });
+  };
+
+  const randomPicClick = async () => {
+    const imgurl = await useRandomAnimePic();
+    form.background_image = imgurl;
   };
 </script>
 
