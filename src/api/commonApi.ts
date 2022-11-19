@@ -120,11 +120,6 @@ export interface ICalendar {
   weatherSourceUrl: string;
 }
 
-export interface INews {
-  code: number;
-  msg: string;
-  data: string[];
-}
 
 export const reqWeather = (city: string) => {
   return useHttp<BasicResp<string>>({
@@ -134,7 +129,7 @@ export const reqWeather = (city: string) => {
 };
 
 export const reqNews = () => {
-  return useHttp<INews>({
+  return useHttp<BasicResp<string[]>>({
     url: `common/news`,
     method: 'get',
   });

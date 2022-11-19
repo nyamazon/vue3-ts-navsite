@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <p>copy;2021 &nbsp; Powered by xx</p>
+    <p>Created By BladeK</p>
   </footer>
 </template>
 

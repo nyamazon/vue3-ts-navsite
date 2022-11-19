@@ -143,8 +143,11 @@
   import { updateSettingsApi } from '@/api/backend/indexSettingsApi';
   import { ElNotificationMessageModel } from '@/model/message/ElNotificationMessageModel';
   import { useRandomAnimePic } from '@/hooks/api/useRandomAnimePic';
+  import { useUserStore } from '@/store/hooks/useUserstore';
+  import { getNowDate } from '@/utils/date';
 
   const siteSettingStore = useSiteSettingsStore();
+  const userStore = useUserStore();
   const form = reactive({
     ...storeToRefs(siteSettingStore),
   });
@@ -152,10 +155,12 @@
     siteSettingStore.load({ ...form });
   });
   const handleUpdate = () => {
-    updateSettingsApi({ ...form }).then((res) => {
-      const message = ElNotificationMessageModel(res) as Partial<NotificationOptions>;
-      ElNotification(message);
-    });
+    updateSettingsApi({ ...form, ...userStore.$state.data, update_time: getNowDate() }).then(
+      (res) => {
+        const message = ElNotificationMessageModel(res) as Partial<NotificationOptions>;
+        ElNotification(message);
+      }
+    );
   };
 
   const randomPicClick = async () => {

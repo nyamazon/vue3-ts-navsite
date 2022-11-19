@@ -43,6 +43,7 @@
   import { useRouter } from 'vue-router';
   import { OK_CODE } from '@/app/keys';
   import { ElMessage, ElMessageBox } from 'element-plus';
+  import { useUserStore } from '@/store/hooks/useUserstore';
 
   type Props = {
     visible: boolean;
@@ -95,8 +96,12 @@
       // 装填数据
       userForm.value.verify.id = verify.value.verify_id;
       const returnUserMessage = await useUserLogin(userForm, loading);
+      const userStore = useUserStore();
+      userStore.updateUserData(returnUserMessage.value.data);
+      console.log(returnUserMessage.value);
       if (returnUserMessage.value.code === OK_CODE) {
-        router.push('/admin');
+        ElMessage.success('登录成功,两秒后跳转至首页……');
+        setTimeout(() => router.push('/admin'), 2000);
       } else {
         ElMessageBox.alert(returnUserMessage.value.msg, '登录失败!', {
           confirmButtonText: 'OK',

@@ -22,7 +22,7 @@ const useSiteData = () => {
     },
     (id) => {
       if (!id || id <= 0) return;
-      console.log("enter load")
+      console.log("enter load,id="+id)
       userID.value = id!;
       siteSettings.load(siteConfig.value);
       searchConfigStore.load(searchConfig.value);
@@ -31,13 +31,10 @@ const useSiteData = () => {
   );
   const { boxes, loading: loadingBoxes } = useSiteBoxes(userID);
   const { weather } = useWeather();
-  const { news } = useNews();
   watch(weather, () => {
     weatherStore.$patch({ data: weather.value });
   });
-  watch(news, () => {
-    newsStore.$patch({ data: news.value });
-  });
+
 
   return {
     siteConfig,

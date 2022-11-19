@@ -1,5 +1,20 @@
 <template>
-  <div class="headers flex justify-center sm:justify-between px-2 flex-wrap">
+  <div
+    class="
+      headers
+      flex
+      justify-center
+      items-center
+      flex-col
+      sm:flex-row sm:justify-between
+      px-2
+      py-2
+      xl:py-0
+      space-y-2
+      sm:space-y-0
+      flex-wrap
+    "
+  >
     <div class="left">
       <el-popover
         :visible="showPoper"
@@ -19,12 +34,14 @@
           />
         </template>
         <template #reference>
-          <el-button @click="showPoper = !showPoper" link type="primary">{{ info }}</el-button>
+          <span @click="showPoper = !showPoper" class="text-gray-100 cursor-pointer text-sm">
+            {{ info }}
+          </span>
         </template>
       </el-popover>
     </div>
     <div class="right">
-      <ul class="right-ul flex 2xl:space-x-4 2xl:text-base space-x-2 text-base">
+      <ul class="right-ul flex 2xl:space-x-4 2xl:text-base 2xl:space-x-2 space-x-1 text-base">
         <li>
           <NewsDialog />
         </li>
@@ -58,7 +75,7 @@
   import NewsDialog from './header/NewsDialog.vue';
   import MenuDropDown from './header/MenuDropDown.vue';
   import { useRouter } from 'vue-router';
-  import { Camera,Promotion } from '@element-plus/icons';
+  import { Camera, Promotion } from '@element-plus/icons';
 
   const router = useRouter();
   const weatherStore = useWeatherStore();

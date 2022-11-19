@@ -1,7 +1,7 @@
 <template>
   <div
     class="front"
-    v-loading="loadingSiteConfig"
+    v-loading="tempLoading"
     element-loading-text="Loading..."
     element-loading-svg-view-box="-10, -10, 50, 50"
     element-loading-background="rgba(122, 122, 122, 0.8)"
@@ -14,12 +14,13 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
   import useSiteSettingsStore from '@/store/hooks/useSiteSettingsStore';
-  import useSiteData from '@/hooks/app/useSiteData';
   import useStorage from '@/hooks/useStorage';
 
-  const { loadingSiteConfig } = useSiteData();
-
   const siteSettings = useSiteSettingsStore();
+  const tempLoading = computed(() => {
+    console.log(siteSettings, 'asdasdsadsad');
+    return !siteSettings;
+  });
   const bgImg = computed(() => {
     return `url('${siteSettings.background_image}')`;
   });

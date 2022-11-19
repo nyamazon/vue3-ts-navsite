@@ -10,7 +10,18 @@
             <span class="font-bold">导航后台管理</span>
           </div>
         </div>
-        <div class="main-header">
+        <div
+          class="
+            py-1
+            main-header
+            shadow-sm
+            border-solid border-gray-100 border-0 border-b-4
+            flex
+            items-center
+            flex-1
+            justify-between
+          "
+        >
           <el-icon
             class="header-icon cursor-pointer transition-transform"
             :class="{ 'is-rotate': isCollapse }"
@@ -19,6 +30,16 @@
           >
             <Fold />
           </el-icon>
+
+          <el-dropdown type="primary">
+            <el-avatar class="mr-10" :size="50" :src="loadingAvatar" />
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>个人资料</el-dropdown-item>
+                <el-dropdown-item>退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
         </div>
       </el-header>
       <el-container class="my-el-container">
@@ -92,6 +113,7 @@
   import { backendSettingsModel } from '@/model/backendSettingsModel';
   import { ISite_config } from '@/api/siteApi';
   import { updateSettingsApi } from '@/api/backend/indexSettingsApi';
+  import loadingAvatar from '@/assets/image/loading.gif';
 
   const isCollapse = ref<boolean>(false);
   const handleOpen = () => {};

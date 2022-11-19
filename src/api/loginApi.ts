@@ -11,8 +11,11 @@ export interface IUserForm {
   verify:IVerifyForm
 }
 export interface ReturnUserFrom {
-  user_id:string;
+  user_id:number;
   username:string;
+  avatar?:string;
+  role?:string;
+
 }
 
 export const reqUserLogin = (userForm:IUserForm) => {

@@ -1,9 +1,14 @@
 import type { BasicResp } from '../types';
 import useHttp from '../useHttp';
-import { ISite_config } from '@/api/siteApi';
+import type { ISite_config } from '@/api/siteApi';
+import { ReturnUserFrom } from '../loginApi';
 // export type keys = keyof ISite_config
 
-export const updateSettingsApi = (settings: Partial<ISite_config>) => {
+interface IUpdateSiteSettingsForm extends ISite_config,ReturnUserFrom {
+  update_time?:string;
+}
+
+export const updateSettingsApi = (settings: Partial<IUpdateSiteSettingsForm>) => {
   return useHttp<BasicResp<boolean>>({
     url: 'backend/updateSettings',
     method: 'post',

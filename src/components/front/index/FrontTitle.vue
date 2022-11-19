@@ -1,6 +1,6 @@
 <template>
-  <div class="title text-center mt-8">
-    <h3 class="site_name font-bold text-5xl">{{ site_name }}</h3>
+  <div class="title text-center 2xl:mt-8 mt-4">
+    <h3 class="site_name font-bold text-4xl 2xl:text-5xl">{{ site_name }}</h3>
     <div class="desc mt-6 text-sm">{{ site_desc }}</div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <FrontHeader />
+  <FrontHeader class="test" />
   <FrontTitle />
   <FrontSearchBox />
 

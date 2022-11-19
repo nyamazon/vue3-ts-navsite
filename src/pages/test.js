@@ -1,21 +1,9 @@
-function strChange(title) {
-  return title.split(' ').join('-').toLowerCase();
+const patt = /^1$/;
+const msgStr = '1';
+console.log(!patt.test(msgStr));
+console.log(msgStr.length > 1);
+if (msgStr.length > 1 || !patt.test(msgStr)) {
+  console.log('enter');
+  return;
 }
-const resultStr = strChange('Hello-Books Sword A World');
-console.log(resultStr)
-
-function arrChange(arr) {
-  let reg = /^\d+$/;
-  return arr.map(item => {
-    if (reg.test(item)) {
-      return item * item
-    }
-  }).sort((a, b) => b - a).filter(item => item);
-}
-
-const result = arrChange([-5, 8.8, 2, 3, -3.9, 9, 4]);
-console.log(result)
-
-const tempFn = async () => {
-  const [data] = await axios.get('/itemlist.json')
-}
+console.log('failed');

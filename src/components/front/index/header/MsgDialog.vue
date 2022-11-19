@@ -11,7 +11,12 @@
       <div class="verify flex space-x-2 justify-center">
         <el-input class="flex-1" placeholder="昵称"></el-input>
         <el-input class="flex-1" placeholder="验证码"></el-input>
-        <img :src="image" alt="" class="w-20 cursor-pointer rounded" @click="refresh()" />
+        <img
+          :src="verify.verify_img"
+          alt=""
+          class="w-20 cursor-pointer rounded"
+          @click="refresh()"
+        />
       </div>
     </div>
     <div class="border-t my-4 bg-gray-500"></div>
@@ -26,7 +31,7 @@
   import { ref } from 'vue';
 
   const visible = ref<Boolean>(false);
-  const { image, refresh } = useVerify();
+  const { verify, refresh } = useVerify();
 </script>
 
 <style lang="scss" scoped>

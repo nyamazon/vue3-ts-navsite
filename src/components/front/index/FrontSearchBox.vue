@@ -36,7 +36,7 @@
         @keyup.enter="handleSearch"
       />
       <button class="absolute top-1 right-3 text-2xl outline-none">
-        <span class="text-white" @click="handleSearch">搜索</span>
+        <span class="text-white cursor-pointer" @click="handleSearch">搜索</span>
       </button>
     </div>
   </div>
@@ -97,6 +97,9 @@
       @apply text-black outline-none w-full pl-2 pr-6 py-2 focus:bg-opacity-60 rounded-xl transition;
       color: var(--box-title-color);
       background: var(--box-background-color);
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.8);
+      }
       &:hover {
         background: var(--box-back-hover-color);
       }
