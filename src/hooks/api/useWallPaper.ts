@@ -11,7 +11,6 @@ const useWallPaper = (currentPage: Ref<number>) => {
 
   watch(currentPage, async () => {
     await backTop();
-    console.log('enter');
     refresh();
   });
   const refresh = () => {

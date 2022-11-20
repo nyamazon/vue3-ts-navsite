@@ -12,6 +12,5 @@ export function loadImage(url: string): Promise<HTMLImageElement> {
       reject(new Error('Image load error'));
     };
     image.src = url;
-    console.log('imagesssssss', image);
   });
 }

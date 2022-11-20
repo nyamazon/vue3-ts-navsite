@@ -98,7 +98,7 @@
       const returnUserMessage = await useUserLogin(userForm, loading);
       const userStore = useUserStore();
       userStore.updateUserData(returnUserMessage.value.data);
-      console.log(returnUserMessage.value);
+      // console.log(returnUserMessage.value);
       if (returnUserMessage.value.code === OK_CODE) {
         ElMessage.success('登录成功,两秒后跳转至首页……');
         setTimeout(() => router.push('/admin'), 2000);

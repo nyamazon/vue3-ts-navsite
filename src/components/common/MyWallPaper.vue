@@ -48,12 +48,12 @@
   const viewerVisible = ref<boolean>(false);
   const onPreview = (picId: string) => {
     let clickImg = data.value.find((item) => item.pic_id === picId);
-    console.log(clickImg);
+    // console.log(clickImg);
     originPicList.value = [clickImg?.pic_origin_url || ''];
     viewerVisible.value = true;
   };
   const handleViewerClose = () => {
-    console.log('enter');
+    // console.log('enter');
     viewerVisible.value = false;
   };
 </script>

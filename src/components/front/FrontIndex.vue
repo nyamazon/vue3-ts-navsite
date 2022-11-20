@@ -28,7 +28,6 @@
     (id) => (userID.value = id || -1)
   );
   // const { boxes } = useSiteBoxes(userID);
-  console.log(userID);
 </script>
 
 <style lang="scss" scoped></style>

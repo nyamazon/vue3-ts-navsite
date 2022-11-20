@@ -2,7 +2,7 @@ import { reqNews } from '@/api/commonApi';
 import { OK_CODE } from '@/app/keys';
 import { ref } from 'vue';
 
-import { useRequestBackHook } from '@/hooks/common/commonHooks';
+import { useRequestBackHook } from '@/hooks/common/requestHook';
 
 const useNews = () => {
   // const news = ref<string[]>([]);
@@ -25,8 +25,8 @@ const useNews = () => {
   //   refresh,
   //   loading,
   // };
-  const [news,refresh,loading] = useRequestBackHook(reqNews);
-    return {
+  const { data: news, refresh, loading } = useRequestBackHook(reqNews);
+  return {
     news,
     refresh,
     loading,

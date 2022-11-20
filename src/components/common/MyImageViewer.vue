@@ -92,7 +92,7 @@
   /* 遮罩滚轮事件开始 */
   const handleWheel = (event: WheelEvent) => {
     const { deltaY } = event;
-    console.log(deltaY);
+    // console.log(deltaY);
     if (deltaY > 0) {
       wheelZoom('zoomOut');
     } else if (deltaY < 0) {

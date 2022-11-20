@@ -27,11 +27,10 @@ export const useRequestBackHook = <T>(
       if (code === OK_CODE) {
         data.value = value;
       }
-      loading.value = false;
-    });
+    }).finally(() => loading.value = false);
   };
   const { initData } = options;
   //初始化
-  initData ? refresh() : '';
-  return [data, refresh, loading];
+  initData? refresh() : '';
+  return {data, refresh, loading};
 };

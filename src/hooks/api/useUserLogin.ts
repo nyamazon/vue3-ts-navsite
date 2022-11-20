@@ -17,7 +17,7 @@ const useUserLogin = (userForm: Ref<IUserForm>,loading:Ref<boolean>):Promise<Ref
   return new Promise((resolve) => {
     reqUserLogin(userForm.value).then((result) => {
       if(result.code === OK_CODE) {
-        console.log("result,",result)
+        console.log("UserLoginResult,",result)
         returnUserMessage.value = result;
         resolve(returnUserMessage)
       }

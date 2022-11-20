@@ -1,8 +1,9 @@
 import type { IBoxesData, ISearch_config, ISite_config } from '@/api/siteApi';
 import { reqSiteBoxes, reqSiteConfig } from '@/api/siteApi';
-import type { Ref } from 'vue';
+import { Ref, toRef } from 'vue';
 import { ref, watch } from 'vue';
 import { OK_CODE } from '@/app/keys';
+import { useRequestBackHook } from '../common/requestHook';
 
 const useSiteConfig = () => {
   const loading = ref(true);
@@ -19,6 +20,18 @@ const useSiteConfig = () => {
     })
     .finally(() => (loading.value = false));
 
+  // const { data, loading } = useRequestBackHook(reqSiteConfig);
+  // const { site_config, search_config } = data.value || {};
+  // watch(
+  //   () => data,
+  //   () => {
+  //     siteConfig.value = site_config as ISite_config;
+  //     searchConfig.value = search_config as ISearch_config[];
+  //   }
+  // );
+  // console.log(siteConfig)
+  // siteConfig.value = site_config as ISite_config;
+  // searchConfig.value = search_config as ISearch_config[];
   return {
     siteConfig,
     searchConfig,

@@ -18,7 +18,7 @@
 
   const siteSettings = useSiteSettingsStore();
   const tempLoading = computed(() => {
-    console.log(siteSettings, 'asdasdsadsad');
+    // console.log(siteSettings, 'asdasdsadsad');
     return !siteSettings;
   });
   const bgImg = computed(() => {

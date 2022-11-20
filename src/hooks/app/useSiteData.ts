@@ -15,14 +15,12 @@ const useSiteData = () => {
   const siteSettings = useSiteSettingsStore();
   const searchConfigStore = useSearchConfigStore();
   const weatherStore = useWeatherStore();
-  const newsStore = useNewsStore();
   watch(
     () => {
       return siteConfig.value.id;
     },
     (id) => {
       if (!id || id <= 0) return;
-      console.log("enter load,id="+id)
       userID.value = id!;
       siteSettings.load(siteConfig.value);
       searchConfigStore.load(searchConfig.value);

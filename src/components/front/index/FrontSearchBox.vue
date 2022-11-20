@@ -58,7 +58,6 @@
   const linkLists = computed(() => {
     return itemLinks.value?.links[linkIndex.value];
   });
-  console.log('linkLists', linkLists);
   const queryStr = ref('');
   const handleSearch = () => {
     if (!queryStr.value) return;
