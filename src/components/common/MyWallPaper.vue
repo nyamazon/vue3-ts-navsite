@@ -62,11 +62,11 @@
   .wallpaper {
     @apply h-full w-full flex justify-center items-center;
     .wallpaper-boxes {
-      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 py-3 max-w-screen-2xl;
+      @apply w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 py-3 max-w-screen-2xl;
       .wallpaper-item {
-        @apply h-64 bg-gray-400 shadow-sm m-2 rounded;
+        @apply h-64 bg-gray-400 shadow-sm m-2 rounded flex;
         & > img {
-          @apply h-full w-full rounded shadow-sm object-cover transition-all cursor-pointer;
+          @apply flex-1 rounded shadow-sm object-cover transition-all cursor-pointer;
           &:hover {
             box-shadow: 0 20px 25px 0 rgba(255, 255, 255, 0.2);
           }
